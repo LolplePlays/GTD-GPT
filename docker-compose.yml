@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  bot:
+    build: .
+    container_name: gtd_gpt
+    env_file:
+      - .env
+    restart: unless-stopped
+    volumes:
+      - ./characters:/app/characters
+      - ./baseSystem.txt:/app/baseSystem.txt
+    network_mode: host
